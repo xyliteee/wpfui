@@ -48,9 +48,9 @@ public partial class TitleBar
         var window = Window.GetWindow(this);
         if (window?.ResizeMode != ResizeMode.CanResize && window?.ResizeMode != ResizeMode.CanResizeWithGrip)
         {
-            return IntPtr.Zero;
+            return (IntPtr)PInvoke.HTNOWHERE;
         }
-        
+
         if (!PInvoke.GetWindowRect(new HWND(hwnd), out RECT windowRect))
         {
             return (IntPtr)PInvoke.HTNOWHERE;

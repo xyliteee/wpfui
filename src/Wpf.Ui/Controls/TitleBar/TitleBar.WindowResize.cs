@@ -45,8 +45,7 @@ public partial class TitleBar
 
     private IntPtr GetWindowBorderHitTestResult(IntPtr hwnd, IntPtr lParam)
     {
-        var window = Window.GetWindow(this);
-        if (window?.ResizeMode != ResizeMode.CanResize && window?.ResizeMode != ResizeMode.CanResizeWithGrip)
+        if (_currentWindow?.ResizeMode != ResizeMode.CanResize && _currentWindow?.ResizeMode != ResizeMode.CanResizeWithGrip)
         {
             return (IntPtr)PInvoke.HTNOWHERE;
         }
